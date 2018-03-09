@@ -1,18 +1,17 @@
-.submitBTN{
+.submitBTN {
     margin-top: 20px;
     opacity: 0;
 }
 
 .eventImg {
-    width:150px;
-    height:150px;
+    width: 150px;
+    height: 150px;
     align-content: center;
     margin-bottom: 10px;
 }
 
 .boxsize {
     width: 45%
-    
 }
 
 .userInput {
@@ -29,8 +28,26 @@ body {
     margin-left: 20px;
 }
 
- /* Always set the map height explicitly to define the size of the div
+/* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-       #map {
-        height: 100%;
-      }
+
+#map {
+    height: 100%;
+}
+
+.teamImg {
+    border: 1px solid rgb(175, 171, 171);
+    margin-top: 30px;
+    color: white;
+    height: 750px;
+    padding: 20px;
+}
+
+.pic {
+    padding-right: 30px;
+    width: 250px;
+    height: 250px;
+}
+.pic1 {
+    margin-left: 80px;
+}
