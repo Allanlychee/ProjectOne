@@ -1,3 +1,23 @@
-.submitBTN, #content {
-    margin-left:10px;
+.submitBTN{
+    margin-top: 20px;
+    opacity: 0;
+}
+
+.eventImg {
+    width:150px;
+    height:150px;
+    align-content: center;
+    margin-bottom: 10px;
+}
+
+.boxsize {
+    width:45%;
+}
+
+.userInput {
+    margin-top: 200px;
+}
+
+body {
+    background-image: url("../images/city_lights.jpg")
 }
