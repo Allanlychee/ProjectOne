@@ -11,7 +11,8 @@
 }
 
 .boxsize {
-    width:45%;
+    width: 45%
+    
 }
 
 .userInput {
@@ -19,5 +20,17 @@
 }
 
 body {
-    background-image: url("../images/city_lights.jpg")
+    background-image: url("../images/city_lights.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
+
+.brand-logo {
+    margin-left: 20px;
+}
+
+ /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+       #map {
+        height: 100%;
+      }

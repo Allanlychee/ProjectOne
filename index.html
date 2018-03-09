@@ -19,11 +19,7 @@
 
 
 <body>
-    <!--mmason33.github.io/LetsMeet GoogleMaps-->
-    <!--makeup-source.firebaseapp.com Makeup Products -->
-    <!--okapoor.github.io/iLoveMusic -->
-    <!-- -->
-    <!-- -->
+
     <nav>
         <div class="nav-wrapper indigo lighten-2">
             <a href="#" class="brand-logo">Event Search</a>
@@ -32,40 +28,66 @@
                     <a href="#">Home</a>
                 </li>
                 <li>
-                    <a href="#">Meet Us</a>
+                    <a href="about-us.html">Meet Us</a>
                 </li>
                 <li>
-                    <a href="#"></a>
+                    <a href="contact.html">Contact Us</a>
                 </li>
             </ul>
         </div>
     </nav>
+    
+<!-- categories: FUTURE ENHANCEMENT sports, music, technology, arts, food-->
 
+    <div width="100%" class="carousel">
+        <a class="carousel-item" href="#one!">
+            <!--Images and carousel items below will be replaced by BACK-END TEAM  -->
+            <img height="400" width="700" src="https://4.imimg.com/data4/SP/KI/MY-14597395/a-500x500.png">
+        </a>
+
+
+        <a class="carousel-item" href="#two!">
+            <img height="400" width="700" src="https://www.lcps.org/cms/lib/VA01000195/Centricity/Domain/739/Foreign%20Languages%20of%20the%20World.jpg">
+        </a>
+
+        <a class="carousel-item" href="#three!">
+            <img height="400" width="700" src="http://media.pennlive.com/entertainment_impact/photo/live-music-shutterstockjpg-1c2f1a89e18747ec.jpg">
+        </a>
+        <a class="carousel-item" href="#four!">
+            <img height="400" width="700" src="http://ksassets.timeincuk.net/wp/uploads/sites/54/2016/06/football-1-1.jpg">
+        </a>
+
+    </div>
+
+
+
+
+    <!-- Event Search Commented out -->
     <div class="row userInput">
-        <form class="col s12">
-            <div class="row">
-                <div class = "col s3"></div>
-                <div class="input-field col s3">
-                    <input placeholder="Event" id="eventSearch" type="text" class="validate">
-
+            <form class="col s12">
+                <div class="row">
+                    <div class = "col s3"></div>
+                    <div class="input-field col s3">
+                        <input placeholder="Event" id="eventSearch" type="text" class="validate">
+    
+                    </div>
+                    <div class="input-field col s3">
+                        <input placeholder="Location" id="locationSearch" type="text" class="validate">
+                    </div>
+                    <div class = "col s3">
+                        <button class="submitBTN btn waves-effect waves-light" type="submit" name="action">Submit
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
                 </div>
-                <div class="input-field col s3">
-                    <input placeholder="Location" id="locationSearch" type="text" class="validate">
-                </div>
-                <div class = "col s3">
-                    <button class="submitBTN btn waves-effect waves-light" type="submit" name="action">Submit
-                        <i class="material-icons right">send</i>
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
-    <div class="row">
-        <div class="col s12">
-            <span id='content'></span>
+            </form>
         </div>
-        <!-- <div class = "col s7"></div> -->
-    </div>
+        <div class="row">
+            <div class="col s12">
+                <span id='content'></span>
+            </div>
+            <div class = "col s7"></div>
+        </div>
 
 
 
@@ -78,6 +100,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
     <!--backendjs -->
     <script type="text/javascript" src="assets/js/main.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script>
+         $(document).ready(function(){
+        $('.carousel').carousel();
+      });
+
+        $(".button-collapse").sideNav();
+    </script>
 </body>
 
 </html>
