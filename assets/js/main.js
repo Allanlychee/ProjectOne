@@ -2,7 +2,7 @@
 $(".submitBTN").on('click', function () {
   $("#content").empty()
   var querySearch = $("#eventSearch").val().trim()
-  console.log(querySearch)
+  console.log('Search Keyword:' + querySearch)
   var queryLocation = $("#locationSearch").val().trim()
   console.log(queryLocation)
   var queryDate = "future"
