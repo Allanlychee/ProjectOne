@@ -14,9 +14,9 @@
     width: 45%
 }
 
-.userInput {
+/* .userInput {
     margin-top: 100px;
-}
+} */
 
 body {
     background-image: url("../images/city_lights.jpg");
@@ -54,9 +54,14 @@ body {
 
 .carousel .carousel-item {
     width:400px;
+    margin-top:0px;
 }
 
 .text {
     text-align: center;
     color: white;
+}
+
+.material-icons{
+    padding-top: 30px;
 }
