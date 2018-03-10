@@ -15,7 +15,7 @@
 }
 
 .userInput {
-    margin-top: 200px;
+    margin-top: 100px;
 }
 
 body {
@@ -50,4 +50,8 @@ body {
 }
 .pic1 {
     margin-left: 80px;
+}
+
+.carousel .carousel-item {
+    width:400px;
 }
