@@ -10,8 +10,9 @@
     margin-bottom: 10px;
 }
 
-.boxsize {
-    width: 45%
+.boxchar {
+    float: left;
+    margin-right:2px;
 }
 
 /* .userInput {
@@ -64,4 +65,8 @@ body {
 
 .material-icons{
     padding-top: 30px;
+}
+
+#locationSearch {
+    color: white;
 }

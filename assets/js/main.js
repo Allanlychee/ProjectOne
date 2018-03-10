@@ -43,7 +43,10 @@ var locationDefault = function () {
 $(".submitBTN").on('click', function () {
   $("#content").empty()
   // $(".userInput").hide()
+  var dataSearch = $(this).attr("data-search")
+  $("#eventSearch").attr('value', dataSearch)
   var querySearch = $("#eventSearch").val().trim()
+  console.log(this)
   console.log('Search Keyword:' + querySearch)
   var queryLocation = $("#locationSearch").val().trim()
   console.log(queryLocation)
@@ -88,7 +91,7 @@ $(".submitBTN").on('click', function () {
             div.append(imageURL)
           }
           div.append(eventfulLink + "<br>")
-          div.addClass('card-panel teal lighten-5 boxsize')
+          div.addClass('card-panel boxchar col s3')
           $("#content").append(div)
         }
       }
