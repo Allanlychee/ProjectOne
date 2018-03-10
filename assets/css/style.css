@@ -61,3 +61,15 @@ body {
 #locationSearch, #eventSearch {
     color: white;
 }
+
+.card-content {
+    height: 3.6em;
+    text-overflow: -o-ellipsis-lastline;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+/* img {
+    height: 150px;
+} */
