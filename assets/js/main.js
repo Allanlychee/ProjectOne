@@ -1,10 +1,53 @@
 
+var map, infoWindow
+function initMap() {
+  // map = new google.maps.Map($('#map'), {
+  //   center: {lat: -34.397, lng: 150.644},
+  //   zoom: 6
+  // })
+  infoWindow = new google.maps.InfoWindow
+}
+var locationDefault = function () {
+  var pos
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      }
+      console.log("lattitude:  " + pos.lat)
+      console.log("longitude:  " + pos.lng)
+      
+      $.ajax({
+        url : 'https://maps.googleapis.com/maps/api/geocode/json',
+        data : {
+          'latlng' : pos.lat + ", " + pos.lng  
+        },
+        dataType : 'json',
+        
+        success: function(r){  
+          console.log('success', r)
+        },
+        error: function(e){ 
+          console.log('error', e)
+        }
+        
+      }).then (function(response) {
+        console.log ("location:  " + response.results[1].formatted_address)
+        $("#locationSearch").attr("value", response.results[1].formatted_address)
+      })
+    })
+    }
+  }
+  
 $(".submitBTN").on('click', function () {
   $("#content").empty()
-  $(".userInput").hide()
+  // $(".userInput").hide()
   var querySearch = $("#eventSearch").val().trim()
   var queryLocation = $("#locationSearch").val().trim()
   var queryDate = "future"
+
+
   $.ajax({
     url: "https://crossorigin.me/http://api.eventful.com/json/events/search?keywords=" + querySearch + "&location=" + queryLocation + "&" + queryDate + "=Future&app_key=mW7nqRDmDzZsdTFH",
     method: "GET"
@@ -43,6 +86,7 @@ $(".submitBTN").on('click', function () {
       }
     }
   })
+
   return false
   //   }).catch(function(err){
   //       console.log(err)
