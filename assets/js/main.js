@@ -1,19 +1,20 @@
 
 $(".submitBTN").on('click', function () {
   $("#content").empty()
-  // $(".userInput").hide()
   var querySearch = $("#eventSearch").val().trim()
   console.log(querySearch)
   var queryLocation = $("#locationSearch").val().trim()
   console.log(queryLocation)
   var queryDate = "future"
-  if (queryLocation = " "){
-    alert("Please input a location")
+  if (queryLocation.length < 1){
+    $(".text").text("Please input a location above")
   }
   else {
+    $(".userInput").fadeOut()
     $.ajax({
       url: "https://crossorigin.me/http://api.eventful.com/json/events/search?keywords=" + querySearch + "&location=" + queryLocation + "&future=Future&app_key=mW7nqRDmDzZsdTFH",
       method: "GET"
+    
     }).then(function (response) {
       
       var queryParse = JSON.parse(response)
