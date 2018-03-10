@@ -60,8 +60,49 @@ body {
 .text {
     text-align: center;
     color: white;
+    font-size: 40px;
 }
 
 .material-icons{
     padding-top: 30px;
 }
+
+/* .card-1,
+.card-2,
+.card-3{
+    padding:20px;
+} */
+
+img{
+    height: 150px;
+}
+
+/* .card-content{
+    display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  -o-text-overflow: ellipsis;
+} */
+
+/* .card-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  } */
+/* 
+  .card-content {
+    display: ;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+  } */
+
+  .card-content {
+    height: 3.6em; /* exactly three lines */
+    text-overflow: -o-ellipsis-lastline;
+    display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical; 
+  }
