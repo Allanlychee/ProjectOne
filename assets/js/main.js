@@ -72,20 +72,25 @@ $(".submitBTN").on('click', function () {
           console.log((i + 1) + ". " + queryParse.events.event[i].title)
           console.log(queryParse.events.event[i])
           var div = $('<div>')
-          var title = "<h5>" + (i + 1) + ". " + queryParse.events.event[i].title + "</h5><hr>"
+          var title = "<h5><b>" + (i + 1) + ". " + queryParse.events.event[i].title + "<b></h5><hr>"
           var venueAddr = queryParse.events.event[i].venue_address
           var venueName = queryParse.events.event[i].venue_name
           var description = "<p>" + queryParse.events.event[i].description + "</p>"
           var startTime = "<p>" + queryParse.events.event[i].start_time + "</p>"
           var date = moment(startTime, 'YYYY-MM-DD HH:mm:ss').format('MMM D, YYYY h:mm a')
-          var eventfulLink = "<p><a href='" + queryParse.events.event[i].url + "'target='" + "_blank'>" + "Event Link" + "</a></p>"
+          var eventfulLink = "<p><a class='btn indigo lighten-2' href='" + queryParse.events.event[i].url + "'target='" + "_blank'>" + "Eventful Link" + "</a></p>"
           var image = $('<img>')
           image.addClass('eventImg')
           div.append(title)
-          div.append(venueName + " at " + venueAddr + "<br>")
+          div.append(venueName + "<br>")
+          div.append(venueAddr + "<br>")
           div.append(date + "<br><br>")
-          div.append("<b>Description: </b><br><br>" + description + "<br>")
-
+          if (queryParse.events.event[i].description === null) {
+            div.append("<b>Description: </b>N/A<br><br>")
+          }
+          else {
+            div.append("<b>Description: </b><br>" + description + "<br>")
+          }
           if (queryParse.events.event[i].image === null) {
             console.log("Image is Null")
           }
@@ -94,7 +99,7 @@ $(".submitBTN").on('click', function () {
             div.append(imageURL)
           }
           div.append(eventfulLink + "<br>")
-          div.addClass('card-panel boxchar col s3')
+          div.addClass('card-panel hoverable boxchar col s3')
           $("#content").append(div)
         }
       }

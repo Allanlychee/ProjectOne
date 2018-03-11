@@ -4,10 +4,21 @@
 }
 
 .boxchar {
-    height: 384px;
-    width: 25%;
+    height: 300px;
+    width: 310px;
     float: left;
+    overflow: auto;
+    border-radius: 8px;
+    line-height: 1.5;
+
 }
+
+
+.container {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 90%;
+  }
 
 body {
     background-image: url("../images/city_lights.jpg");
@@ -34,6 +45,10 @@ body {
     padding: 20px;
 }
 
+#teamText {
+    margin-left: 10px;
+}
+
 .pic {
     padding-right: 30px;
     width: 250px;
@@ -41,7 +56,7 @@ body {
 }
 
 .pic1 {
-    margin-left: 80px;
+    margin-left: 10px;
 }
 
 .carousel .carousel-item {
