@@ -107,7 +107,13 @@ body {
 .Shayan{
     padding-left: 70px;
 }
-
-eventImg {
+/* 
+.eventImg {
     width:100%;
+} */
+
+
+
+.progress {
+margin-top: 200px;
 }

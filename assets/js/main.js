@@ -39,6 +39,19 @@ var locationDefault = function () {
   }
 }
 
+function openModal() {
+  document.getElementById('modal').style.display = 'block';
+  document.getElementById('fade').style.display = 'block';
+}
+
+function closeModal() {
+document.getElementById('modal').style.display = 'none';
+document.getElementById('fade').style.display = 'none';
+}
+
+
+
+
 $(".submitBTN").on('click', function () {
   $("#content").empty()
   var dataSearch = $(this).attr("data-search")
@@ -59,9 +72,9 @@ $(".submitBTN").on('click', function () {
     $.ajax({
       url: "https://crossorigin.me/http://api.eventful.com/json/events/search?keywords=" + querySearch + "&location=" + queryLocation + "&future=Future&app_key=mW7nqRDmDzZsdTFH",
       method: "GET"
-
     }).then(function (response) {
-
+      openModal()
+      
       var queryParse = JSON.parse(response)
       for (i = 0; i < 10; i++) {
 
@@ -99,11 +112,20 @@ $(".submitBTN").on('click', function () {
             div.append("<b>Description: </b><br>" + description + "<br>")
           }
           div.append(eventfulLink + "<br>")
-          div.addClass('card-panel hoverable boxchar col s3')
+          div.addClass('card-panel hoverable boxchar eventbox-' + i + ' col s3')
+          div.append("<a class='modal-trigger' href='#modal"+i + "'> Modal</a>")
           $("#content").append(div)
+          closeModal()
+          $(div).on('click', function () {
+            console.log(this)
+            // $('#seeProfile .modal-body p').html('test')
+            // $('#modal1').modal('open')
+
+          })
         }
       }
     })
     return false
   }
 })
+
