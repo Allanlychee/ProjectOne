@@ -39,17 +39,7 @@ var locationDefault = function () {
   }
 }
 
-function openModal() {
-  document.getElementById('modal').style.display = 'block';
-  document.getElementById('fade').style.display = 'block';
-}
-
-function closeModal() {
-document.getElementById('modal').style.display = 'none';
-document.getElementById('fade').style.display = 'none';
-}
-
-
+$('#preloader').hide()
 
 
 $(".submitBTN").on('click', function () {
@@ -73,7 +63,7 @@ $(".submitBTN").on('click', function () {
       url: "https://crossorigin.me/http://api.eventful.com/json/events/search?keywords=" + querySearch + "&location=" + queryLocation + "&future=Future&app_key=mW7nqRDmDzZsdTFH",
       method: "GET"
     }).then(function (response) {
-      openModal()
+      $('#preloader').show()
       
       var queryParse = JSON.parse(response)
       for (i = 0; i < 10; i++) {
@@ -94,6 +84,25 @@ $(".submitBTN").on('click', function () {
           var eventfulLink = "<p><a class='btn indigo lighten-2' href='" + queryParse.events.event[i].url + "'target='" + "_blank'>" + "Eventful Link" + "</a></p>"
           var image = $('<img>')
           image.addClass('eventImg')
+
+          // var imageBing
+          // $.ajax({
+          //   url: "https://api.cognitive.microsoft.com/bing/v7.0/images/search&q=" + queryParse.events.event[i].title,
+            
+          //   // Request headers.
+          //   beforeSend: function(xhrObj){
+          //     xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "1d3a95366e404d818c1ef8d5b63587cb")
+          //   },
+          //   method: "GET"
+          // }).then(function (response) {
+          //   console.log(response)
+          //   console.log("Bing Image URL: " + response.url)
+          // })
+
+          $(div).on("click", function() {
+            console.log("clicking on DIV: " + this)
+          })
+
           if (queryParse.events.event[i].image === null) {
             console.log("Image is Null")
           }
@@ -115,7 +124,7 @@ $(".submitBTN").on('click', function () {
           div.addClass('card-panel hoverable boxchar eventbox-' + i + ' col s3')
           div.append("<a class='modal-trigger' href='#modal"+i + "'> Modal</a>")
           $("#content").append(div)
-          closeModal()
+          $('#preloader').hide()
           $(div).on('click', function () {
             console.log(this)
             // $('#seeProfile .modal-body p').html('test')
