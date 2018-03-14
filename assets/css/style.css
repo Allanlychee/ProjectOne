@@ -4,7 +4,7 @@
 }
 
 .boxchar {
-    height: 300px;
+    height: 350px;
     width: 310px;
     float: left;
     overflow: auto;
@@ -107,10 +107,10 @@ body {
 .Shayan{
     padding-left: 70px;
 }
-/* 
+
 .eventImg {
     width:100%;
-} */
+}
 
 
 

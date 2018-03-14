@@ -1,12 +1,9 @@
-
+//Google Geolocating API
 var map, infoWindow
 function initMap() {
-  // map = new google.maps.Map($('#map'), {
-  //   center: {lat: -34.397, lng: 150.644},
-  //   zoom: 6
-  // })
   infoWindow = new google.maps.InfoWindow
 }
+
 var locationDefault = function () {
   var pos
   if (navigator.geolocation) {
@@ -38,40 +35,45 @@ var locationDefault = function () {
     })
   }
 }
-
+//Preloader to show user ajax call currently in process
 $('#preloader').hide()
 
-
+//Eventful API
 $(".submitBTN").on('click', function () {
   $("#content").empty()
+  //Carousel Pre-defined Event Search
   var dataSearch = $(this).attr("data-search")
   $("#eventSearch").attr('value', dataSearch)
+  //Event Custom Search Parameters
   var querySearch = $("#eventSearch").val().trim()
+  var queryLocation = $("#locationSearch").val().trim()
 
   console.log('===========================================')
   console.log('Keyword: ' + querySearch)
-  var queryLocation = $("#locationSearch").val().trim()
   console.log('Location: ' + queryLocation)
   console.log('===========================================')
 
+  //if no location is populated, change text to prompt user on HTML to provide location
   if (queryLocation.length < 1) {
     $(".text").text("Please input a location above")
   }
   else {
+    //if all search parameters populated, then hide everything, show preloader until ajax call is completed
     $(".userInput").fadeOut()
+    $('#preloader').show()
     $.ajax({
       url: "https://crossorigin.me/http://api.eventful.com/json/events/search?keywords=" + querySearch + "&location=" + queryLocation + "&future=Future&app_key=mW7nqRDmDzZsdTFH",
       method: "GET"
     }).then(function (response) {
-      $('#preloader').show()
-      
+      //Convert stringified JSON to true JSON for object manipulation
       var queryParse = JSON.parse(response)
       for (i = 0; i < 10; i++) {
-
+        //If no events, display in body that there are no events
         if (queryParse.events === null) {
           $("<body>").append("<h1>Sorry no events around you</h1>")
         }
         else {
+          //Structure for displaying eventful information Image > Title  > Venue Name > Venue Address > Date&Time > Description > Link
           console.log((i + 1) + ". " + queryParse.events.event[i].title)
           console.log(queryParse.events.event[i])
           var div = $('<div>')
@@ -88,7 +90,7 @@ $(".submitBTN").on('click', function () {
           // var imageBing
           // $.ajax({
           //   url: "https://api.cognitive.microsoft.com/bing/v7.0/images/search&q=" + queryParse.events.event[i].title,
-            
+
           //   // Request headers.
           //   beforeSend: function(xhrObj){
           //     xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "1d3a95366e404d818c1ef8d5b63587cb")
@@ -98,10 +100,6 @@ $(".submitBTN").on('click', function () {
           //   console.log(response)
           //   console.log("Bing Image URL: " + response.url)
           // })
-
-          $(div).on("click", function() {
-            console.log("clicking on DIV: " + this)
-          })
 
           if (queryParse.events.event[i].image === null) {
             console.log("Image is Null")
@@ -122,18 +120,20 @@ $(".submitBTN").on('click', function () {
           }
           div.append(eventfulLink + "<br>")
           div.addClass('card-panel hoverable boxchar eventbox-' + i + ' col s3')
-          div.append("<a class='modal-trigger' href='#modal"+i + "'> Modal</a>")
+          // div.append("<a class='modal-trigger' href='#modal" + i + "'> Modal</a>")
           $("#content").append(div)
           $('#preloader').hide()
-          $(div).on('click', function () {
-            console.log(this)
-            // $('#seeProfile .modal-body p').html('test')
-            // $('#modal1').modal('open')
-
-          })
+          // var myModal = $("<div class='modal' id='modal'" + i + ">TEST MODAL</div>")
+          // $('#modal' + i).html(myModal)
+          // $(div).on("click", function () {
+          //   console.log(this)
+          // })
+          // $('#seeProfile .modal-body p').html('test')
+          // $('#modal1').modal('open')
         }
       }
     })
+    //Prevent refresh on submit
     return false
   }
 })

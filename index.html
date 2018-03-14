@@ -88,11 +88,12 @@
         </form>
     </div>
 
-    <!-- categories: FUTURE ENHANCEMENT sports, music, technology, arts, food-->
+    <!-- categories: sports, music, technology, arts, food-->
     <div class='container'>
         <div class="row">
+            <!-- Preloader display in between AJAX call begins until ends -->
             <div id="preloader">
-                <div class="progress blue">
+                <div class="progress violet">
                     <div class="indeterminate"></div>
                 </div>
             </div>
@@ -132,6 +133,17 @@
         </div>
     </div>
 
+    <!-- Modal Structure -->
+  <!-- <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Modal Header</h4>
+          <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+      </div> -->
+
     <!--firebase-->
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
     <!--jquery-->
@@ -151,8 +163,10 @@
         $(document).ready(function () {
             $('.carousel').carousel()
             locationDefault()
+            $('.modal').modal({
+                  dismissable: true
+                })
         })
-
         $(".button-collapse").sideNav()
     </script>
 </body>
