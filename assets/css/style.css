@@ -3,21 +3,22 @@
     opacity: 0;
 }
 
-.eventImg {
-    width: 150px;
-    height: 150px;
-    align-content: center;
-    margin-bottom: 10px;
-}
-
 .boxchar {
+    height: 300px;
+    width: 310px;
     float: left;
-    margin-right:2px;
+    overflow: auto;
+    border-radius: 8px;
+    line-height: 1.5;
+
 }
 
-/* .userInput {
-    margin-top: 100px;
-} */
+
+.container {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 90%;
+  }
 
 body {
     background-image: url("../images/city_lights.jpg");
@@ -49,7 +50,6 @@ body {
 }
 
 
-
 .pic {
     padding-right: 30px;
     width: 250px;
@@ -64,8 +64,8 @@ body {
 }
 
 .carousel .carousel-item {
-    width:400px;
-    margin-top:0px;
+    width: 400px;
+    margin-top: 0px;
 }
 
 .text {
@@ -74,11 +74,11 @@ body {
     font-size: 40px;
 }
 
-.material-icons{
+.material-icons {
     padding-top: 30px;
 }
 
-#locationSearch {
+#locationSearch, #eventSearch {
     color: white;
 }
 
@@ -108,5 +108,12 @@ body {
 }
 
 
+
+
+
+
+
+
+ 
 
  
