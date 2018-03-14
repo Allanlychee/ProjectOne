@@ -22,7 +22,7 @@
 
     <nav>
         <div class="nav-wrapper indigo lighten-2">
-            <a href="#" class="brand-logo">Event Search</a>
+            <a href="#" class="brand-logo">Xanadu Event Search</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li>
                     <a href="index.html">Home</a>
@@ -63,6 +63,13 @@
                 <div class="col s12">
                     <!--Images and carousel items below will be replaced by Front-End TEAM  -->
                     <div width="100%" class="carousel userInput">
+
+                        <div class="left">
+                            <a href="Previo" class="movePrevCarousel middle-indicator-text waves-effect waves-light content-indicator">
+                                <i class="material-icons left  middle-indicator-text">chevron_left</i>
+                            </a>
+                        </div>
+
                         <a class="carousel-item submitBTN" id="eventSearch" data-search='Sports' href="#one!">
                             <img height="300" width="700" src="assets/images/cardSports.jpg">
                         </a>
@@ -80,6 +87,12 @@
                         </a>
                         <button class="submitBTN btn waves-effect waves-light" type="submit" name="action">Submit
                             <i class="material-icons right">send</i>
+
+                            <div class="right">
+                                <a href="Siguiente" class=" moveNextCarousel middle-indicator-text waves-effect waves-light content-indicator">
+                                    <i class="material-icons right middle-indicator-text">chevron_right</i>
+                                </a>
+                            </div>
                     </div>
                     </button>
                 </div>
@@ -134,7 +147,7 @@
     </div>
 
     <!-- Modal Structure -->
-  <!-- <div id="modal1" class="modal">
+    <!-- <div id="modal1" class="modal">
         <div class="modal-content">
           <h4>Modal Header</h4>
           <p>A bunch of text</p>
@@ -163,11 +176,29 @@
         $(document).ready(function () {
             $('.carousel').carousel()
             locationDefault()
-            $('.modal').modal({
-                  dismissable: true
-                })
+            // $('.modal').modal({
+            //       dismissable: true
+            //     })
         })
         $(".button-collapse").sideNav()
+
+        // start carrousel
+        $('.carousel.carousel-slider').carousel({
+            fullWidth: true,
+            indicators: false
+        });
+        // move next carousel
+        $('.moveNextCarousel').click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            $('.carousel').carousel('next');
+        });
+        // move prev carousel
+        $('.movePrevCarousel').click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            $('.carousel').carousel('prev');
+        });
     </script>
 </body>
 
