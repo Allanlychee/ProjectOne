@@ -43,21 +43,21 @@
             <div class="row">
                 <div class="col s3"></div>
                 <div class="input-field col s3">
-                        
+
                     <input placeholder="Event" id="eventSearch" type="text" class="validate">
 
                 </div>
                 <div class="input-field col s3">
-                    <input placeholder="Location" id="locationSearch" type="text" class="validate">
+                    <input placeholder="Your Location" id="locationSearch" type="text" class="validate">
                 </div>
                 <div class="col s3">
-                        <label class="label-icon" for="search">
-                                <i class="material-icons">search</i>
-                            </label>
+                    <label class="label-icon" for="search">
+                        <i class="material-icons">search</i>
+                    </label>
                 </div>
             </div>
 
-            <h1 class ="text">Or choose a category below!</h1>
+            <h1 class="text">Or choose a category below!</h1>
 
             <div class="row">
                 <div class="col s12">
@@ -90,35 +90,85 @@
 
     <!-- categories: FUTURE ENHANCEMENT sports, music, technology, arts, food-->
 
-
-
-
-
-
     <div class="row">
-        <div class="col s12">
+        
             <span id='content'></span>
+      </div>
+      
+    <div class="row">
+        <!-- card 1 -->
+        <div class="col m4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="">
+                    <span class="card-title-1" style="width:100%; background: rgba(0, 0, 0, 0.5);">Sample1</span>
+                </div>
+                <div class="card-content">
+                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
+                        require little markup to use effectively.</p>
+                </div>
+                <div class="card-action">
+                    <a href="#">This is a link</a>
+                </div>
+            </div>
         </div>
+        <!-- card 2 -->
+        <div class="col m4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="http://www.ilikewallpaper.net/ipad-wallpapers/download/2268/Square-Pattern-ipad-wallpaper-ilikewallpaper_com.jpg">
+                    <span class="card-title" style="width:100%; background: rgba(0, 0, 0, 0.5);">Sample2</span>
+                </div>
+                <div class="card-content">
+                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
+                        require little markup to use effectively.</p>
+                </div>
+                <div class="card-action">
+                    <a href="#">This is a link</a>
+                </div>
+            </div>
+        </div>
+        <!-- card 3 -->
+        <div class="col m4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="http://www.ilikewallpaper.net/ipad-wallpapers/download/2268/Square-Pattern-ipad-wallpaper-ilikewallpaper_com.jpg">
+                    <span class="card-title" style="width:100%; background: rgba(0, 0, 0, 0.5);">Sample2</span>
+                </div>
+                <div class="card-content">
+                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
+                        require little markup to use effectively.</p>
+                </div>
+                <div class="card-action">
+                    <a href="#">This is a link</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!--firebase-->
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <!--jquery-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--momentjs-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+    <!--backendjs -->
+    <script type="text/javascript" src="assets/js/main.js"></script>
 
-        <!--firebase-->
-        <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-        <!--jquery-->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <!--momentjs-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
-        <!--backendjs -->
-        <script type="text/javascript" src="assets/js/main.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('.carousel').carousel();
-            });
+    <!-- Google Maps API -->
+    <script async defer src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBGKzK10pnII1YoVFkujW3oEbCJaiCLwrs&callback=initMap'></script>
 
-            $(".button-collapse").sideNav();
-        </script>
+    <script>
+        $(document).ready(function () {
+            $('.carousel').carousel()
+            locationDefault()
+        })
+
+        $(".button-collapse").sideNav()
+    </script>
 </body>
 
 </html>

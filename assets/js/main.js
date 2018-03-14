@@ -1,8 +1,53 @@
 
+var map, infoWindow
+function initMap() {
+  // map = new google.maps.Map($('#map'), {
+  //   center: {lat: -34.397, lng: 150.644},
+  //   zoom: 6
+  // })
+  infoWindow = new google.maps.InfoWindow
+}
+var locationDefault = function () {
+  var pos
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      }
+      console.log("lattitude:  " + pos.lat)
+      console.log("longitude:  " + pos.lng)
+      
+      $.ajax({
+        url : 'https://maps.googleapis.com/maps/api/geocode/json',
+        data : {
+          'latlng' : pos.lat + ", " + pos.lng  
+        },
+        dataType : 'json',
+        
+        success: function(r){  
+          console.log('success', r)
+        },
+        error: function(e){ 
+          console.log('error', e)
+        }
+        
+      }).then (function(response) {
+        console.log ("location:  " + response.results[1].formatted_address)
+        $("#locationSearch").attr("value", response.results[1].formatted_address)
+      })
+    })
+    }
+  }
+  
 $(".submitBTN").on('click', function () {
   $("#content").empty()
+  // $(".userInput").hide()
+  var dataSearch = $(this).attr("data-search")
+  $("#eventSearch").attr('value', dataSearch)
   var querySearch = $("#eventSearch").val().trim()
-  console.log(querySearch)
+  console.log(this)
+  console.log('Search Keyword:' + querySearch)
   var queryLocation = $("#locationSearch").val().trim()
   console.log(queryLocation)
   var queryDate = "future"
@@ -46,7 +91,7 @@ $(".submitBTN").on('click', function () {
             div.append(imageURL)
           }
           div.append(eventfulLink + "<br>")
-          div.addClass('card-panel teal lighten-5 boxsize')
+          div.addClass('card-panel boxchar col s3')
           $("#content").append(div)
         }
       }
