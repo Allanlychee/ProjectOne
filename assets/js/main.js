@@ -81,6 +81,25 @@ $(".submitBTN").on('click', function () {
           var eventfulLink = "<p><a class='btn indigo lighten-2' href='" + queryParse.events.event[i].url + "'target='" + "_blank'>" + "Eventful Link" + "</a></p>"
           var image = $('<img>')
           image.addClass('eventImg')
+
+          // var imageBing
+          // $.ajax({
+          //   url: "https://api.cognitive.microsoft.com/bing/v7.0/images/search&q=" + queryParse.events.event[i].title,
+            
+          //   // Request headers.
+          //   beforeSend: function(xhrObj){
+          //     xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "1d3a95366e404d818c1ef8d5b63587cb")
+          //   },
+          //   method: "GET"
+          // }).then(function (response) {
+          //   console.log(response)
+          //   console.log("Bing Image URL: " + response.url)
+          // })
+
+          $(div).on("click", function() {
+            console.log("clicking on DIV: " + this)
+          })
+
           if (queryParse.events.event[i].image === null) {
             console.log("Image is Null")
           }
