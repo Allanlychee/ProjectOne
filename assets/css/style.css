@@ -5,7 +5,7 @@
 
 .boxchar {
     height: 350px;
-    width: 310px;
+    width: 500px;
     float: left;
     overflow: auto;
     border-radius: 8px;
@@ -20,10 +20,12 @@
     margin: 0 auto;
     max-width: 1280px;
     width: 1100px;
-    width: 90%;
+    width: 100%;
     position: relative;
     left: 100px;
 }
+
+
 
 body {
     background-image: url("../images/city_lights.jpg");
@@ -37,7 +39,10 @@ body {
 }
 
 .teamImg {
+    position: relative;
+    width:80%;
     border: 1px solid rgb(175, 171, 171);
+    margin-left:10%;
     margin-top: 30px;
     color: white;
     height: 750px;
@@ -87,10 +92,10 @@ body {
 }
 
 .Allan {
-    padding-left: 80px;
+    padding-left: 40px;
 }
 
-.Aries {
+/* .Aries {
     padding-left: 150px;
 }
 
@@ -100,7 +105,7 @@ body {
 
 .Shayan {
     padding-left: 70px;
-}
+} */
 
 .eventImg {
     width: 100%;
@@ -109,6 +114,7 @@ body {
 .progress {
     margin-top: 200px;
     right:100px;
+    margin-bottom: 400px;
 }
 
 .middle-indicator {
@@ -135,4 +141,15 @@ a.middle-indicator-text {
 
 .indicators {
     visibility: hidden;
+}
+
+#map {
+    height: 500px;
+    width: 80%;
+    left:150px;
+}
+
+.gContainer {
+    margin-top:100px;
+    background-color: black;
 }

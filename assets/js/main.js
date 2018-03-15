@@ -1,9 +1,9 @@
-//Google Geolocating API
-var map, infoWindow
+$('.gContainer').hide()
+//Google Geolocating and Google Maps API
+var map, infoWindow, marker
 function initMap() {
   infoWindow = new google.maps.InfoWindow
 }
-
 var locationDefault = function () {
   var pos
   if (navigator.geolocation) {
@@ -14,27 +14,50 @@ var locationDefault = function () {
       }
       console.log("Lattitude: " + pos.lat + "; Longitude: " + pos.lng)
 
-      $.ajax({
-        url: 'https://maps.googleapis.com/maps/api/geocode/json',
-        data: {
-          'latlng': pos.lat + ", " + pos.lng
-        },
-        dataType: 'json',
-
-        success: function (r) {
-          console.log('Success', r)
-        },
-        error: function (e) {
-          console.log('Error', e)
-        }
-
-      }).then(function (response) {
-        console.log("Current Location:  " + response.results[1].formatted_address)
-        $("#locationSearch").attr("value", response.results[1].formatted_address)
-      })
+      //Google Map with Marker IF user accepts to allow 'use location'
+       $('.gContainer').show()
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: { lat: pos.lat, lng: pos.lng }
+        })
+    marker = new google.maps.Marker({
+      map: map,
+      draggable: true,
+      animation: google.maps.Animation.DROP,
+      position: { lat: pos.lat, lng: pos.lng }
     })
-  }
+    //if user clicks marker, the marker bounces
+    marker.addListener('click', toggleBounce);
+    function toggleBounce() {
+      if (marker.getAnimation() !== null) {
+        marker.setAnimation(null);
+      } else {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+      }
+      //end Google Map
+    }
+    $.ajax({
+      url: 'https://maps.googleapis.com/maps/api/geocode/json',
+      data: {
+        'latlng': pos.lat + ", " + pos.lng
+      },
+      dataType: 'json',
+
+      success: function (r) {
+        console.log('Success', r)
+      },
+      error: function (e) {
+        console.log('Error', e)
+      }
+
+    }).then(function (response) {
+      console.log("Current Location:  " + response.results[2].formatted_address)
+      $("#locationSearch").attr("value", response.results[2].formatted_address)
+    })
+  })
 }
+}
+
 //Preloader to show user ajax call currently in process
 $('#preloader').hide()
 
@@ -60,6 +83,7 @@ $(".submitBTN").on('click', function () {
   else {
     //if all search parameters populated, then hide everything, show preloader until ajax call is completed
     $(".userInput").fadeOut()
+    $(".gContainer").hide()
     $('#preloader').show()
     $.ajax({
       url: "https://crossorigin.me/http://api.eventful.com/json/events/search?keywords=" + querySearch + "&location=" + queryLocation + "&future=Future&app_key=mW7nqRDmDzZsdTFH",
@@ -123,6 +147,8 @@ $(".submitBTN").on('click', function () {
           // div.append("<a class='modal-trigger' href='#modal" + i + "'> Modal</a>")
           $("#content").append(div)
           $('#preloader').hide()
+          $('.gContainer').show()
+          $('#glocation').text('Your events near you!')
           // var myModal = $("<div class='modal' id='modal'" + i + ">TEST MODAL</div>")
           // $('#modal' + i).html(myModal)
           // $(div).on("click", function () {
