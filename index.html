@@ -17,7 +17,7 @@
 </head>
 
 <body>
-
+<!---------Navigation Bar -------------------------------------------------------->
     <nav>
         <div class="nav-wrapper indigo lighten-2">
             <a href="#" class="brand-logo">Xanadu Event Search</a>
@@ -35,7 +35,7 @@
         </div>
     </nav>
 
-    <!-- Event Search Commented out -->
+<!------- User Inputs: Event Keyword Search & Location ---------------------------->
     <div class="row userInput">
         <form class="col s12">
             <div class="row">
@@ -57,11 +57,11 @@
 
             <h1 class="text">Input your search above or choose a category below!</h1>
 
+ <!------------------------------------------------------------------------------>
             <div class="row">
                 <div class="col s12">
-                    <!--Images and carousel items below will be replaced by Front-End TEAM  -->
+                    <!--Images and carousel items below -->
                     <div width="100%" class="carousel userInput">
-
                         <div class="left">
                             <a href="Previo" class="movePrevCarousel middle-indicator-text waves-effect waves-light content-indicator">
                                 <i class="material-icons left  middle-indicator-text">chevron_left</i>
@@ -98,8 +98,7 @@
 
         </form>
     </div>
-
-    <!-- categories: sports, music, technology, arts, food-->
+ <!------------------------------------------------------------------------------------>
     <div class='container'>
         <div class="row">
             <!-- Preloader display in between AJAX call begins until ends -->
@@ -108,18 +107,18 @@
                     <div class="indeterminate"></div>
                 </div>
             </div>
-
+            <!--To display dynamic Eventful API search -->
             <span id='content'></span>
         </div>
     </div>
-
+<!-------Google Maps container -------------------------------------------------------->
     <div class='gContainer'>
         <br>
         <h3 id='glocation' style='text-align:center; color:white;'>Current Location</h3>
         <div id="map"></div>
     </div>
 
-    <!--footer-->
+<!------Footer-------------------------------------------------------------------------->
     <footer class="page-footer indigo lighten-2" style="position:fixed;bottom:0;left:0;width:100%";>
         <div class="footer-copyright indigo lighten-2">
             <span id='footer-text' style="font-size:30px;color:white;margin:auto;">© 2018 Xanadu Group</span>

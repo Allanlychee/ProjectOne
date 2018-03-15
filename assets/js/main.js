@@ -1,5 +1,5 @@
 $('.gContainer').hide()
-//Google Geolocating and Google Maps API
+//---Google Geolocating and Google Maps API---
 var map, infoWindow, marker
 function initMap() {
   infoWindow = new google.maps.InfoWindow
@@ -14,60 +14,60 @@ var locationDefault = function () {
       }
       console.log("Lattitude: " + pos.lat + "; Longitude: " + pos.lng)
 
-      //Google Map with Marker IF user accepts to allow 'use location'
-       $('.gContainer').show()
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 13,
-          center: { lat: pos.lat, lng: pos.lng }
-        })
-    marker = new google.maps.Marker({
-      map: map,
-      draggable: true,
-      animation: google.maps.Animation.DROP,
-      position: { lat: pos.lat, lng: pos.lng }
-    })
-    //if user clicks marker, the marker bounces
-    marker.addListener('click', toggleBounce);
-    function toggleBounce() {
-      if (marker.getAnimation() !== null) {
-        marker.setAnimation(null);
-      } else {
-        marker.setAnimation(google.maps.Animation.BOUNCE);
+      //---Google Map with Marker IF user accepts to allow 'use location'---
+      $('.gContainer').show()
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 13,
+        center: { lat: pos.lat, lng: pos.lng }
+      })
+      marker = new google.maps.Marker({
+        map: map,
+        draggable: true,
+        animation: google.maps.Animation.DROP,
+        position: { lat: pos.lat, lng: pos.lng }
+      })
+      //---if user clicks marker, the marker bounces---
+      marker.addListener('click', toggleBounce);
+      function toggleBounce() {
+        if (marker.getAnimation() !== null) {
+          marker.setAnimation(null);
+        } else {
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+        //---end Google Map---
       }
-      //end Google Map
-    }
-    $.ajax({
-      url: 'https://maps.googleapis.com/maps/api/geocode/json',
-      data: {
-        'latlng': pos.lat + ", " + pos.lng
-      },
-      dataType: 'json',
+      $.ajax({
+        url: 'https://maps.googleapis.com/maps/api/geocode/json',
+        data: {
+          'latlng': pos.lat + ", " + pos.lng
+        },
+        dataType: 'json',
 
-      success: function (r) {
-        console.log('Success', r)
-      },
-      error: function (e) {
-        console.log('Error', e)
-      }
+        success: function (r) {
+          console.log('Success', r)
+        },
+        error: function (e) {
+          console.log('Error', e)
+        }
 
-    }).then(function (response) {
-      console.log("Current Location:  " + response.results[2].formatted_address)
-      $("#locationSearch").attr("value", response.results[2].formatted_address)
+      }).then(function (response) {
+        console.log("Current Location:  " + response.results[2].formatted_address)
+        $("#locationSearch").attr("value", response.results[2].formatted_address)
+      })
     })
-  })
-}
+  }
 }
 
-//Preloader to show user ajax call currently in process
+//---Preloader to show user ajax call currently in process---
 $('#preloader').hide()
 
-//Eventful API
+//---Eventful API---
 $(".submitBTN").on('click', function () {
   $("#content").empty()
-  //Carousel Pre-defined Event Search
+  //---Carousel Pre-defined Event Search---
   var dataSearch = $(this).attr("data-search")
   $("#eventSearch").attr('value', dataSearch)
-  //Event Custom Search Parameters
+  //---Event Custom Search Parameters---
   var querySearch = $("#eventSearch").val().trim()
   var queryLocation = $("#locationSearch").val().trim()
 
@@ -76,12 +76,12 @@ $(".submitBTN").on('click', function () {
   console.log('Location: ' + queryLocation)
   console.log('===========================================')
 
-  //if no location is populated, change text to prompt user on HTML to provide location
+  //---if no location is populated, change text to prompt user on HTML to provide location---
   if (queryLocation.length < 1) {
     $(".text").text("Please input a location above")
   }
   else {
-    //if all search parameters populated, then hide everything, show preloader until ajax call is completed
+    //---if all search parameters populated, then hide everything, show preloader until ajax call is completed---
     $(".userInput").fadeOut()
     $(".gContainer").hide()
     $('#preloader').show()
@@ -144,18 +144,27 @@ $(".submitBTN").on('click', function () {
           }
           div.append(eventfulLink + "<br>")
           div.addClass('card-panel hoverable boxchar eventbox-' + i + ' col s3')
+          /*---------------Future Enhancement to include Modals when user clicks on specific event -*/
           // div.append("<a class='modal-trigger' href='#modal" + i + "'> Modal</a>")
+          /*---------------------------------------------------------------------------------------*/
           $("#content").append(div)
           $('#preloader').hide()
           $('.gContainer').show()
           $('#glocation').text('Your events near you!')
-          // var myModal = $("<div class='modal' id='modal'" + i + ">TEST MODAL</div>")
-          // $('#modal' + i).html(myModal)
-          // $(div).on("click", function () {
-          //   console.log(this)
-          // })
-          // $('#seeProfile .modal-body p').html('test')
-          // $('#modal1').modal('open')
+      
+
+          locations.push([(queryParse.events.event[i].latitude), (queryParse.events.event[i].longitude)])
+
+          /*---------------Future Enhancement to include Events Around You-------------------------*/
+            // var infowindow = new google.maps.InfoWindow();
+            // var marker
+
+            // marker = new google.maps.Marker({
+            //   // position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+            //   position: { lat: parseFloat(locations[i][0]), lng: parseFloat(locations[i][1]) },
+            //   map: map
+            // });
+          /*---------------------------------------------------------------------------------------*/
         }
       }
     })
@@ -164,3 +173,5 @@ $(".submitBTN").on('click', function () {
   }
 })
 
+var locations = []
+console.log(locations)
