@@ -62,7 +62,15 @@ var locationDefault = function () {
 $('#preloader').hide()
 
 //---Eventful API---
-$(".submitBTN").on('click', function () {
+  $(".submitBTN").on('click', function() {
+    search();
+  })
+
+  $(".search").on('click', function() {
+    search();
+  })
+
+  function search () {
   $("#content").empty()
   //---Carousel Pre-defined Event Search---
   var dataSearch = $(this).attr("data-search")
@@ -90,13 +98,20 @@ $(".submitBTN").on('click', function () {
       method: "GET"
     }).then(function (response) {
       //Convert stringified JSON to true JSON for object manipulation
+      console.log("inside response")
       var queryParse = JSON.parse(response)
       for (i = 0; i < 10; i++) {
         //If no events, display in body that there are no events
         if (queryParse.events === null) {
-          $("<body>").append("<h1>Sorry no events around you</h1>")
+          // $("<body>").append("Sorry no events near you")
+         
+          $(".null-results").append("Sorry no events near you")
+          // // $(".text").text("Sorry no events around you")
+          $('#preloader').hide()
+          i = 10;
         }
         else {
+          console.log("inside else")
           //Structure for displaying eventful information Image > Title  > Venue Name > Venue Address > Date&Time > Description > Link
           console.log((i + 1) + ". " + queryParse.events.event[i].title)
           console.log(queryParse.events.event[i])
@@ -171,7 +186,7 @@ $(".submitBTN").on('click', function () {
     //Prevent refresh on submit
     return false
   }
-})
+}
 
 var locations = []
 console.log(locations)
