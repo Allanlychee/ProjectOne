@@ -152,4 +152,14 @@ a.middle-indicator-text {
 .gContainer {
     margin-top:100px;
     background-color: black;
+    
+}
+
+.page-footer {
+    position: static;
+    bottom:0;
+}
+
+#footer-text {
+    text-align:center;
 }

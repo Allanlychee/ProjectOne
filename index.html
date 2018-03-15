@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Xanadu Events</title>
     <!-- CSS Reset Sheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
     <!-- Materialize -->
@@ -15,8 +15,6 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-
-
 
 <body>
 
@@ -117,50 +115,16 @@
 
     <div class='gContainer'>
         <br>
-    <h3 id='glocation' style='text-align:center; color:white;'>Current Location</h3>
-    <div id="map"></div>
-    </div>
-    <!-- <div id="myModal" class="modal hide fade" tabindex="-1" data-replace="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-            <h3>Modal Header</h3>
-        </div>
-
-        <div class="modal-body">
-            <p></p>
-        </div>
-        <div class="modal-footer">
-            <button type="button" data-dismiss="modal" class="btn">Close</button>
-        </div> -->
-    <!-- <div class="row">
-       
-        <div class="col m4">
-            <div class="card">
-                <div class="card-image">
-                    <img src="">
-                    <span class="card-title-1" style="width:100%; background: rgba(0, 0, 0, 0.5);">Sample1</span>
-                </div>
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
-                        require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">This is a link</a>
-                </div>
-            </div>
-        </div>
+        <h3 id='glocation' style='text-align:center; color:white;'>Current Location</h3>
+        <div id="map"></div>
     </div>
 
-    <!-- Modal Structure -->
-    <!-- <div id="modal1" class="modal">
-        <div class="modal-content">
-          <h4>Modal Header</h4>
-          <p>A bunch of text</p>
+    <!--footer-->
+    <footer class="page-footer indigo lighten-2" style="position:fixed;bottom:0;left:0;width:100%";>
+        <div class="footer-copyright indigo lighten-2">
+            <span id='footer-text' style="font-size:30px;color:white;margin:auto;">© 2018 Xanadu Group</span>
         </div>
-        <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-        </div>
-      </div> -->
+    </footer>
 
     <!--firebase-->
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
@@ -170,20 +134,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
     <!--backendjs -->
     <script type="text/javascript" src="assets/js/main.js"></script>
-
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
     <!-- Google Maps API -->
     <script async defer src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBGKzK10pnII1YoVFkujW3oEbCJaiCLwrs&callback=initMap'></script>
 
+    <!--Carousel jQuery and call locationDefault on document ready function-->
     <script>
         $(document).ready(function () {
             $('.carousel').carousel()
             locationDefault()
-            // $('.modal').modal({
-            //       dismissable: true
-            //     })
         })
         $(".button-collapse").sideNav()
 
